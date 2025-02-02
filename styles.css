@@ -23,8 +23,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-.add-group input {
+.add-group input,
+.add-item input {
     padding: 10px;
+    margin: 3px 0 10px 0px;
     width: calc(100% - 120px);
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -99,13 +101,6 @@ h1 {
 
 .group ul li button:hover {
     background-color: #e0a800;
-}
-
-.add-item input {
-    padding: 10px;
-    width: calc(100% - 120px);
-    border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
 .add-item button {
