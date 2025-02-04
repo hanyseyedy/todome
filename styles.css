@@ -1,7 +1,9 @@
+/* حالت پیش‌فرض (روشن) */
 body {
     font-family: Arial, sans-serif;
     direction: rtl;
     background-color: #f4f4f4;
+    color: #333;
     margin: 0;
     padding: 0;
 }
@@ -115,4 +117,54 @@ h1 {
 
 .add-item button:hover {
     background-color: #0056b3;
+}
+
+/* حالت تاریک */
+body.dark-mode {
+    background-color: #181818;
+    color: #ddd;
+}
+
+body.dark-mode .container {
+    background-color: #242424;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .add-group button,
+body.dark-mode .group h3 button,
+body.dark-mode .group ul li button,
+body.dark-mode .add-item button {
+    background-color: #444;
+    color: #ddd;
+}
+
+body.dark-mode .add-group button:hover,
+body.dark-mode .group h3 button:hover,
+body.dark-mode .group ul li button:hover,
+body.dark-mode .add-item button:hover {
+    background-color: #666;
+}
+
+/* دکمه تغییر حالت */
+.theme-toggle {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background-color: #0056b3;
+}
+
+body.dark-mode .theme-toggle {
+    background-color: #444;
+}
+
+body.dark-mode .theme-toggle:hover {
+    background-color: #666;
 }

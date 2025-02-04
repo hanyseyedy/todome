@@ -114,5 +114,29 @@ function deleteItem(button) {
     saveData();
 }
 
+// تغییر حالت روشن/تاریک
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    const isDarkMode = body.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    document.getElementById('themeToggle').textContent = isDarkMode ? 'حالت روشن' : 'حالت تاریک';
+}
+
+// بارگذاری حالت ذخیره‌شده
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('themeToggle').textContent = 'حالت روشن';
+    }
+}
+
 // بارگذاری داده‌ها هنگام لود صفحه
-window.onload = loadData;
+window.onload = () => {
+    loadTheme();
+    loadData();
+};
+
+// افزودن رویداد کلیک به دکمه تغییر حالت
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
