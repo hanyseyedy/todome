@@ -54,6 +54,16 @@ function loadData() {
 
 // افزودن گروه
 function addGroup(name, items = [], isArchive = false) {
+    if (!name) {
+        const groupNameInput = document.getElementById('groupName');
+        name = groupNameInput.value.trim();
+        if (!name) {
+            alert('لطفاً نام گروه را وارد کنید!');
+            return;
+        }
+        groupNameInput.value = '';
+    }
+
     const container = isArchive ? document.getElementById('archiveGroups') : document.getElementById('groups');
     const groupDiv = document.createElement('div');
     groupDiv.className = 'group';
@@ -76,6 +86,8 @@ function addGroup(name, items = [], isArchive = false) {
         groupDiv.querySelector('ul').appendChild(li);
     });
     container.appendChild(groupDiv);
+
+    saveData();
 }
 
 // افزودن و حذف آیتم‌ها
