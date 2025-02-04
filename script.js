@@ -115,12 +115,12 @@ function deleteItem(button) {
 
 function archiveItem(button) {
     const group = button.closest('.group');
-    const groupName = group.querySelector('h3').textContent.trim();
+    const groupName = group.querySelector('h3').firstChild.textContent.trim(); // نام گروه
     const li = button.closest('li');
-    const itemText = li.textContent.trim();
-    li.remove();
-    addGroup(groupName, [itemText], true);
-    saveData();
+    const itemText = li.firstChild.textContent.trim(); // متن آیتم
+    li.remove(); // حذف آیتم از لیست
+    addGroup(groupName, [itemText], true); // افزودن آیتم به آرشیو
+    saveData(); // ذخیره داده‌ها
 }
 
 // بارگذاری داده‌ها و تم هنگام لود شدن صفحه
