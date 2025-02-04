@@ -11,16 +11,29 @@
         <h1>تو دو لیست</h1>
         
         <!-- دکمه تغییر حالت -->
-        <button id="themeToggle" class="theme-toggle">حالت تاریک</button>
+        <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">حالت تاریک</button>
+
+        <!-- تب‌ها -->
+        <div class="tabs">
+            <button id="todoTab" class="active-tab" onclick="showTab('todo')">لیست کارها</button>
+            <button id="archiveTab" onclick="showTab('archive')">آرشیو</button>
+        </div>
         
-        <!-- فرم افزودن گروه جدید -->
-        <div class="add-group">
-            <input type="text" id="groupName" placeholder="نام گروه جدید">
-            <button onclick="addGroup()">افزودن گروه</button>
+        <!-- تب لیست کارها -->
+        <div id="todoContent" class="tab-content">
+            <!-- فرم افزودن گروه جدید -->
+            <div class="add-group">
+                <input type="text" id="groupName" placeholder="نام گروه جدید">
+                <button onclick="addGroup()">افزودن گروه</button>
+            </div>
+            <!-- لیست گروه‌ها -->
+            <div id="groups"></div>
         </div>
 
-        <!-- لیست گروه‌ها -->
-        <div id="groups"></div>
+        <!-- تب آرشیو -->
+        <div id="archiveContent" class="tab-content hidden">
+            <div id="archiveGroups"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>

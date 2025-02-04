@@ -1,9 +1,9 @@
-/* حالت پیش‌فرض (روشن) */
+/* حالت کلی */
 body {
     font-family: Arial, sans-serif;
     direction: rtl;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--background-color, #f4f4f4);
+    color: var(--text-color, #333);
     margin: 0;
     padding: 0;
 }
@@ -12,24 +12,58 @@ body {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--container-bg, #fff);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 h1 {
     text-align: center;
-    color: #333;
 }
 
-.add-group {
+.theme-toggle {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: var(--button-bg, #28a745);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 }
 
-.add-group input,
-.add-item input {
-    padding: 10px;
-    margin: 3px 0 10px 0px;
+.tabs button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.tabs .active-tab {
+    background-color: var(--button-bg, #28a745);
+    color: #fff;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content:not(.hidden) {
+    display: block;
+}
+
+.add-group input {
     width: calc(100% - 120px);
+    padding: 10px;
+    margin: 5px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -37,42 +71,25 @@ h1 {
 .add-group button {
     padding: 10px;
     width: 100px;
-    background-color: #28a745;
+    background-color: var(--button-bg, #28a745);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.add-group button:hover {
-    background-color: #218838;
 }
 
 .group {
     margin-bottom: 20px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
 }
 
 .group h3 {
-    margin: 0 0 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.group h3 button {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.group h3 button:hover {
-    background-color: #c82333;
+    margin: 0 0 10px 0;
 }
 
 .group ul {
@@ -83,88 +100,18 @@ h1 {
 .group ul li {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 10px;
     border-bottom: 1px solid #eee;
 }
 
-.group ul li:last-child {
-    border-bottom: none;
+.hidden {
+    display: none;
 }
 
-.group ul li button {
-    background-color: #ffc107;
-    color: #000;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.group ul li button:hover {
-    background-color: #e0a800;
-}
-
-.add-item button {
-    padding: 10px;
-    width: 100px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.add-item button:hover {
-    background-color: #0056b3;
-}
-
-/* حالت تاریک */
-body.dark-mode {
-    background-color: #181818;
-    color: #ddd;
-}
-
-body.dark-mode .container {
-    background-color: #242424;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .add-group button,
-body.dark-mode .group h3 button,
-body.dark-mode .group ul li button,
-body.dark-mode .add-item button {
-    background-color: #444;
-    color: #ddd;
-}
-
-body.dark-mode .add-group button:hover,
-body.dark-mode .group h3 button:hover,
-body.dark-mode .group ul li button:hover,
-body.dark-mode .add-item button:hover {
-    background-color: #666;
-}
-
-/* دکمه تغییر حالت */
-.theme-toggle {
-    display: block;
-    margin: 0 auto 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.theme-toggle:hover {
-    background-color: #0056b3;
-}
-
-body.dark-mode .theme-toggle {
-    background-color: #444;
-}
-
-body.dark-mode .theme-toggle:hover {
-    background-color: #666;
+/* تم تاریک */
+body.dark {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --container-bg: #1e1e1e;
+    --button-bg: #007bff;
 }
